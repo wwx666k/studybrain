@@ -1,0 +1,16 @@
+# 生成的站点产物（由 publish-site.ps1 重建，不入库）
+reports/site/
+reports/temp/
+
+# 临时切片/素材
+tools/_slices*/
+tools/_src/
+tools/node*/
+.screenshots/
+.wrangler/
+.trae-html-share-packages/
+
+# 大体积学习资料
+锐阅读八年级答案/
+*.zip
+*.pdf
