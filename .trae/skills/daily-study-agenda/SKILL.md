@@ -193,7 +193,7 @@ $cmd = 'wscript.exe "' + $v + '" "' + $s + '" -Task physics -Minutes 45 -Next br
 - **报告站上线（固定流程）**：执行
   `powershell -NoProfile -File tools\publish-site.ps1 -Deploy`
   一键完成：按天生成日报明细 → 按周/月/年生成报表 → 重建分层导航页 → 部署到 Cloudflare Pages 项目 `learnrept`。
-  访问地址：https://learnrept.zyhd.dpdns.org （备用 https://learnrept.pages.dev）。
+  正式访问地址：**https://learnrept.zyhd.dpdns.org**（已绑定 Cloudflare Pages 项目 `learnrept`，CNAME 已生效，不要再改域名）。
   只本地生成不上传：去掉 `-Deploy`。
 - **站点分层结构（一级选类型，二级选时间）**：
   - 一级 `index.html`：周报 / 月报 / 年报 三个入口。
@@ -203,7 +203,8 @@ $cmd = 'wscript.exe "' + $v + '" "' + $s + '" -Task physics -Minutes 45 -Next br
   - 日报明细页仍会生成到 `daily/YYYY-MM-DD`，但不放进一级导航，只作为底层数据页。
 - **日报自动上传（重要规则）**：当天所有计划完成，或学生说"剩下的取消"导致当天没有剩余任务时，**在当前这次对话里自动生成并上传一次日报**，不用学生开口要求：
   执行 `powershell -NoProfile -File tools\publish-site.ps1 -Deploy`，然后一句话告诉学生"今天的日报已上线"。
-- 注意：本机 node 便携版在 `C:\Users\lr\AppData\Local\nodejs\node-v26.13.1-win-x64`，脚本已自动加 PATH；wrangler 已登录，凭据在 `%APPDATA%\xdg.config\.wrangler\config\default.toml`（该凭据没有 DNS 写权限，新建子域名需人工加 CNAME）。
+- 注意：本机 node 便携版在 `C:\Users\lr\AppData\Local\nodejs\node-v26.13.1-win-x64`，脚本已自动加 PATH；wrangler 已登录，凭据在 `%APPDATA%\xdg.config\.wrangler\config\default.toml`。域名已绑定完成，**不需要再手动加 CNAME**。
+- 代码仓库：https://github.com/wwx666k/studybrain （私有，main 分支）。
 - 数据源：`data\sessions.csv`（计时日志）+ `data\notes.csv`（一句话总结）+ `data\summary.md`（我写的学科小结）。
 - **学科小结由我写**，存到 `data\summary.md`，格式：
   ```
